@@ -1,27 +1,121 @@
-.word-container{
-	font-size: 60px;
-	font-family: 'Squada One', sans-serif;
+body {
+	background-color: white;
 }
+h3 {
+	font-weight: normal;
+	font-size: 16px;
+	margin-top: -1px;
+	margin-bottom: -4px;
+	margin-left: -10px;
+	font-weight: normal;
 
-.hvr-grow {
-  display: inline-block;
+}
+.word-container{
+	font-size: 55px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+  	width:100%;
+  	text-decoration: none;
+ }
+
+
+.hvr-sweep-to-right  {
   text-decoration: none;
+  margin-right: -13px;	
+  color: #505050;
+  display: inline-block;
   vertical-align: middle;
-  color: black;
-  font-weight: bold;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  rgba(84, 84, 84, 1);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+}
+.hvr-sweep-to-right:before, .onclick-menu:before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  text-decoration: none;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
   -webkit-transition-property: transform;
   transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
 }
-.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  color: red;
+
+.hvr-sweep-to-right:active, {
+	color:red;
+}
+
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+  color: white;
+}
+.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  text-decoration: none;
+  color:red;
+}
+
+
+
+
+.onclick-menu {
+    position: relative;
+    display: inline-block;
+}
+   
+   
+
+.onclick-menu:focus {
+    /* clicking on label should toggle the menu */
+    
+
+
+}
+.onclick-menu:focus .onclick-menu-content {
+    /*  opacity is 1 in opened state (see below) */
+    opacity: 9;
+    visibility: visible;
+    width: 90%;
+    color: #C00000;
+
+
+
+
+    /* don't let pointer-events affect descendant elements */
+   
+}
+.onclick-menu-content {
+    position: absolute;
+    z-index: 1;
+    font-size: 13px;
+    font-family: Verdana;
+    font-weight: normal;
+    background-color: white;
+ 	margin-top: -6px;
+ 	padding-bottom: 6px;
+
+
+
+    /* use opacity to fake immediate toggle */
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.5s;
 }
